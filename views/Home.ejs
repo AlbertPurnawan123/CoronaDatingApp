@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <!-- tambahan external css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <!--  -->
+    <style>
+      *, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* body {
+    background: #CCFBFE;
+    overflow: hidden;
+    font-family: sans-serif;
+  } */
+  
+  .tinder {
+    width: 800px;
+    height: 800px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+  }
+  
+  .loaded.tinder {
+    opacity: 1;
+  }
+  
+  .tinder--status {
+    position: absolute;
+    top: 50%;
+    margin-top: -30px;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+  }
+  
+  .tinder--status i {
+    font-size: 100px;
+    opacity: 0;
+    transform: scale(0.3);
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    width: 100px;
+    margin-left: -50px;
+  }
+  
+  .tinder_love .fa-heart {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  
+  .tinder_nope .fa-remove {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  
+  .tinder--cards {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+  }
+  
+  .tinder--card {
+    display: inline-block;
+    width: 90vw;
+    max-width: 400px;
+    height: 70vh;
+    background: lightskyblue;
+    padding-bottom: 40px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: absolute;
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+  }
+  
+  .moving.tinder--card {
+    transition: none;
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    cursor: grabbing;
+  }
+  
+  .tinder--card img {
+    max-width: 100%;
+    pointer-events: none;
+  }
+  
+  .tinder--card h3 {
+    margin-top: 32px;
+    font-size: 32px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+  
+  .tinder--card p {
+    margin-top: 24px;
+    font-size: 20px;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+  
+  .tinder--buttons {
+    flex: 0 0 100px;
+    text-align: center;
+    padding-top: 20px;
+  }
+  
+  .tinder--buttons button {
+    border-radius: 50%;
+    line-height: 60px;
+    width: 60px;
+    border: 0;
+    background: #FFFFFF;
+    display: inline-block;
+    margin: 0 8px;
+  }
+  
+  .tinder--buttons button:focus {
+    outline: 0;
+  }
+  
+  .tinder--buttons i {
+    font-size: 32px;
+    vertical-align: middle;
+  }
+  
+  .fa-heart {
+    color: #FFACE4;
+  }
+  
+  .fa-remove {
+    color: #CDD6DD;
+  }
+  
+  /*  */
+  body{
+    margin: 0%;
+    font-family: sans-serif;
+    background-image: url('https://miro.medium.com/max/600/1*vUsL9sApWiCZUdpTsDEqng.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.content{
+    background-color: whitesmoke;
+    width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    z-index: 1;
+}
+/* overlay buat gelapin background image */
+/* .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0,0.8);
+    opacity: 0.8;
+  } */
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 4px 8px -4px black;
+  }
+  .nav-con a.active{
+    color: rgb(253, 0, 38);
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-right: 100px;
+    /* padding: 4%; */
+    font-weight: bold;
+    /* background-color: lightseagreen; */
+  }
+  .nav a{
+    text-decoration: none;
+    color: rgb(255, 123, 143);
+  }
+  .nav a:hover{
+    color: rgb(255, 42, 74);
+    transition: 0.4s;
+  }
+  .nav-con{
+    padding: 10%;
+  }
+  .logo img{
+    width: 200px;
+    height: 75px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    padding: 2%;
+  }
+  .setting{
+    padding: 5%;
+  }
+
+  .footer{
+    text-align: center;
+    padding: 3%;
+    background-color: rgb(255, 123, 143);
+    box-shadow: 2px -4px 8px -4px black;
+    color: white;
+  }
+
+  
+        .setting {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f6f6f6;
+          min-width: 230px;
+          overflow: auto;
+          border: 1px solid #ddd;
+          z-index: 1;
+        }
+        
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .setting a:hover {background-color: rgb(202, 202, 202);}
+        
+        .show {display: block;}
+
+    </style>
+    <!--  -->
+</head>
+<body>
+
+    <div class="content">
+        <div class="header">
+            <div class="logo">
+                <img src="../public/images/cd2.png" alt="">
+            </div>
+            <div class="nav">
+                <div class="nav-con"><a href="/home" class="active">Home</a></div>
+                <div class="nav-con"><a href="/love">Love</a></div>
+                <div class="nav-con"><a href="/chat">Chat</a></div>
+                <div class="nav-con"><a href="/profile">Profile</a></div>
+            </div>
+            <div class="setting">
+                <input type="image" src="https://image.pngaaa.com/641/371641-middle.png" width="50px" onclick="myFunction()">
+                <!--  -->
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Notification</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Security</a>
+                    <a href="#">Help</a>
+                    <a href="#">About</a>
+                    <a href="#">Theme</a>
+                    <a href="./Login.html" style="color: white; background-color: red;" onclick="alert('Logout Successfully')">Logout</a>
+                  </div>
+                <!--  -->
+            </div>
+        </div>
+        <div class="tinder">
+            <div class="tinder--status">
+              <i class="fa fa-remove"></i>
+              <i class="fa fa-heart"></i>
+            </div>
+          
+            <div class="tinder--cards">
+              <div class="tinder--card">
+                <img src="https://cdn.popbela.com/content-images/post/20200709/chris-evans-pics-294ec872efae80d7f4ee5a241acbd7a9_750x500.jpg">
+                <h3>Chris Evans</h3>
+                <p>36, Male<br><br>I am your captain america, i am handsome</p>
+              </div>
+              <div class="tinder--card">
+                <img src="https://images.daznservices.com/di/library/GOAL/a9/df/eden-hazard-real-madrid-2020-21_12jl1h7eufqki17o4cl5b8daia.jpg?t=759997081&quality=60&w=1200&h=800">
+                <h3>Eden Hazard</h3>
+                <p>30, Male<br><br>Let's go dinner with me</p>
+              </div>
+              <div class="tinder--card">
+                <img src="https://akcdn.detik.net.id/community/media/visual/2021/01/17/mason-mount_43.jpeg?w=700&q=90">
+                <h3>Mason Mount</h3>
+                <p>22, Male <br><br> I am Champions League Winner</p>
+              </div>
+              <div class="tinder--card">
+                <img src="https://asset.kompas.com/crops/chWE1lBN449TxDKP_AgSFcH62jo=/0x0:512x341/750x500/data/photo/2021/05/30/60b2b46d2abbc.jpg">
+                <h3>N'golo Kante</h3>
+                <p>30, Male</p>
+              </div>
+              <div class="tinder--card">
+                <img src="https://static.republika.co.id/uploads/images/inpicture_slide/chris-hemsworth-_181006125016-887.jpg">
+                <h3>Chris Lupa namanya</h3>
+                <p>40, Male</p>
+              </div>
+            </div>
+          
+            <div class="tinder--buttons">
+              <button id="nope"><i class="fa fa-remove"></i></button>
+              <button id="love"><i class="fa fa-heart"></i></button>
+            </div>
+          </div>
+
+            <div class="footer">
+                © 2021 Corona Dating App All Rights Reserved
+            </div>
+    </div>
+    <div class="overlay"></div>
+</body>
+    <!-- tambahan external script -->
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script> 
+    <script>
+        'use strict';
+
+        var tinderContainer = document.querySelector('.tinder');
+        var allCards = document.querySelectorAll('.tinder--card');
+        var nope = document.getElementById('nope');
+        var love = document.getElementById('love');
+
+        function initCards(card, index) {
+        var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
+
+        newCards.forEach(function (card, index) {
+            card.style.zIndex = allCards.length - index;
+            card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
+            card.style.opacity = (10 - index) / 10;
+        });
+        
+        tinderContainer.classList.add('loaded');
+        }
+
+        initCards();
+
+        allCards.forEach(function (el) {
+        var hammertime = new Hammer(el);
+
+        hammertime.on('pan', function (event) {
+            el.classList.add('moving');
+        });
+
+        hammertime.on('pan', function (event) {
+            if (event.deltaX === 0) return;
+            if (event.center.x === 0 && event.center.y === 0) return;
+
+            tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
+            tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
+
+            var xMulti = event.deltaX * 0.03;
+            var yMulti = event.deltaY / 80;
+            var rotate = xMulti * yMulti;
+
+            event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
+        });
+
+        hammertime.on('panend', function (event) {
+            el.classList.remove('moving');
+            tinderContainer.classList.remove('tinder_love');
+            tinderContainer.classList.remove('tinder_nope');
+
+            var moveOutWidth = document.body.clientWidth;
+            var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
+
+            event.target.classList.toggle('removed', !keep);
+
+            if (keep) {
+            event.target.style.transform = '';
+            } else {
+            var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
+            var toX = event.deltaX > 0 ? endX : -endX;
+            var endY = Math.abs(event.velocityY) * moveOutWidth;
+            var toY = event.deltaY > 0 ? endY : -endY;
+            var xMulti = event.deltaX * 0.03;
+            var yMulti = event.deltaY / 80;
+            var rotate = xMulti * yMulti;
+
+            event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
+            initCards();
+            }
+        });
+        });
+
+        function createButtonListener(love) {
+        return function (event) {
+            var cards = document.querySelectorAll('.tinder--card:not(.removed)');
+            var moveOutWidth = document.body.clientWidth * 1.5;
+
+            if (!cards.length) return false;
+
+            var card = cards[0];
+
+            card.classList.add('removed');
+
+            if (love) {
+            card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
+            } else {
+            card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
+            }
+
+            initCards();
+
+            event.preventDefault();
+        };
+        }
+
+        var nopeListener = createButtonListener(false);
+        var loveListener = createButtonListener(true);
+
+        nope.addEventListener('click', nopeListener);
+        love.addEventListener('click', loveListener);
+
+        // 
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        // 
+
+    </script>
+</html>

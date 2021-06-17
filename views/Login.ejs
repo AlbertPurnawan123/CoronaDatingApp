@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+    margin: 0%;
+    font-family: sans-serif;
+    background-image: url('https://miro.medium.com/max/600/1*vUsL9sApWiCZUdpTsDEqng.jpeg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+/* overlay buat gelapin background image */
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0,0.9);
+    opacity: 0.8;
+  }
+input{
+    display: block;
+    width: 340px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+/* label{
+    display: block;
+    margin-bottom: 10px;
+} */
+.login{
+    width: 100%;
+    height: 35px;
+    background-color: rgb(255, 123, 143);
+    border: rgb(255, 123, 143) 1px solid;
+    color: whitesmoke;
+    font-weight: bold;
+    margin-top: 15px;
+    border-radius: 10px;
+    
+}
+.login:hover{
+    background-color: rgb(253, 81, 106);
+    border: white;
+    color: whitesmoke;
+    transition: 0.4s;
+}
+.judul{
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 123, 143);
+}
+.judul img{
+    width: 100%;
+}
+form{
+    z-index: 1;
+    background-color: whitesmoke;
+    width: 350px;
+    padding: 20px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+}
+
+form a{
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot{
+    display: flex;
+    justify-content: flex-end;
+    font-size: small;
+}
+.signup{
+    font-weight: bold;
+    color: dodgerblue;
+}
+
+</style>
+<body>
+    <div class="content">
+        <form id="loginForm" method="post">
+
+            <div class="judul"><img src="../images/cd2.png" alt=""></div>
+
+            <span id="errorMessage"></span>
+            <input type="text" name="username"placeholder="Username">
+
+            <input type="password" name="password" placeholder="Password">
+
+            <center><button type="submit" class="login">Log In</button></center>
+            <a href="/user/forget" class="forgot">forgot password?</a>
+            <hr>
+            <p>Doesn't have account?<a href="/register" class="signup"> Sign Up</a></p>
+        </form>
+    </div>
+    <div class="overlay"></div>
+
+</body>
+
+</html>

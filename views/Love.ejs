@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/love.css">
+    <!-- tambahan external css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <!-- dropdown setting -->
+    <style>
+        .setting {
+          position: relative;
+          display: inline-block;
+        }
+        
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f6f6f6;
+          min-width: 230px;
+          overflow: auto;
+          border: 1px solid #ddd;
+          z-index: 1;
+        }
+        
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .setting a:hover {background-color: rgb(202, 202, 202);}
+        
+        .show {display: block;}
+
+        /* search */
+        input[type=text] {
+            margin-top: 50px;
+            margin-left: 50px;
+            margin-right: 50px;
+            width: 700px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: white;
+            background-image: url('searchicon.png');
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 20px 12px 40px;
+            
+        }
+        
+  /*  */
+  body{
+    margin: 0%;
+    font-family: sans-serif;
+    background-image: url('https://miro.medium.com/max/600/1*vUsL9sApWiCZUdpTsDEqng.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+.content{
+    background-color: whitesmoke;
+    width: 800px;
+    margin: auto;
+    border-radius: 10px;
+    z-index: 1;
+}
+/* overlay buat gelapin background image */
+/* .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0,0.8);
+    opacity: 0.8;
+  } */
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 4px 8px -4px black;
+  }
+  .nav-con a.active{
+    color: rgb(253, 0, 38);
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-right: 100px;
+    /* padding: 4%; */
+    font-weight: bold;
+    /* background-color: lightseagreen; */
+  }
+  .nav a{
+    text-decoration: none;
+    color: rgb(255, 123, 143);
+  }
+  .nav a:hover{
+    color: rgb(255, 42, 74);
+    transition: 0.4s;
+  }
+  .nav-con{
+    padding: 10%;
+  }
+  .logo img{
+    width: 200px;
+    height: 75px;
+  }
+  .logo{
+    display: flex;
+    align-items: center;
+    padding: 2%;
+  }
+  .setting{
+    padding: 5%;
+  }
+
+  .footer{
+    text-align: center;
+    padding: 3%;
+    background-color: rgb(255, 123, 143);
+    box-shadow: 2px -4px 8px -4px black;
+    color: white;
+  }
+
+/* love */
+  .people{
+      display: block;
+      padding: 5%;
+      overflow: auto;
+  }
+  .tinder--cards {
+    flex-grow: 1;
+    padding-top: 40px;
+    text-align: center;
+    display: block;
+    z-index: 1;
+  }
+  .tinder--card {
+    display: inline-block;
+    width: 562.5px;
+    max-width: 400px;
+    height: 437.5px;
+    background: lightskyblue;
+    border-radius: 10px;
+    margin-bottom: 50px;
+  }
+  .tinder--card img {
+    max-width: 100%;
+    pointer-events: none;
+    border-radius: 10px;
+  }
+  
+  .tinder--card h3 {
+    margin-top: 16px;
+    font-size: 32px;
+    padding: 0 6px;
+    pointer-events: none;
+  }
+  
+  .tinder--card p {
+    margin-top: 12px;
+    font-size: 20px;
+    pointer-events: none;
+  }
+    </style>
+    <!--  -->
+</head>
+<body>
+
+    <div class="content">
+        <div class="header">
+            <div class="logo">
+                <img src="../images/cd2.png" alt="">
+            </div>
+            <div class="nav">
+              <div class="nav-con"><a href="/home">Home</a></div>
+              <div class="nav-con"><a href="/love"class="active">Love</a></div>
+              <div class="nav-con"><a href="/chat">Chat</a></div>
+              <div class="nav-con"><a href="/profile">Profile</a></div>
+            </div>
+            <div class="setting">
+                <input type="image" src="https://image.pngaaa.com/641/371641-middle.png" width="50px" onclick="myFunction()">
+                <!--  -->
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#">Notification</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Security</a>
+                    <a href="#">Help</a>
+                    <a href="#">About</a>
+                    <a href="#">Theme</a>
+                    <a href="./Login.html" style="color: white; background-color: red;" onclick="alert('Logout Successfully')">Logout</a>
+                  </div>
+                <!--  -->
+            </div>
+        </div>
+
+        <!-- search bar -->
+        <input type="text" name="search" placeholder="Search..">
+
+            <div class="people">
+                <div class="tinder--cards">
+                    <div class="tinder--card">
+                      <img src="https://cdn.popbela.com/content-images/post/20200709/chris-evans-pics-294ec872efae80d7f4ee5a241acbd7a9_750x500.jpg">
+                      <h3>Chris Evans</h3>
+                      <p>36, Male<br><br>Hi im looking for career woman</p>
+                    </div>
+                    <div class="tinder--card">
+                      <img src="https://images.daznservices.com/di/library/GOAL/a9/df/eden-hazard-real-madrid-2020-21_12jl1h7eufqki17o4cl5b8daia.jpg?t=759997081&quality=60&w=1200&h=800">
+                      <h3>Eden Hazard</h3>
+                      <p>30, Male<br><br>Let's go dinner with me</p>
+                    </div>
+                    <div class="tinder--card">
+                      <img src="https://akcdn.detik.net.id/community/media/visual/2021/01/17/mason-mount_43.jpeg?w=700&q=90">
+                      <h3>Mason Mount</h3>
+                      <p>22, Male <br><br>I love sports</p>
+                    </div>
+                    <div class="tinder--card">
+                      <img src="https://asset.kompas.com/crops/chWE1lBN449TxDKP_AgSFcH62jo=/0x0:512x341/750x500/data/photo/2021/05/30/60b2b46d2abbc.jpg">
+                      <h3>N'golo Kante</h3>
+                      <p>30, Male <br><br> i have many tropies</p>
+                    </div>
+                    <div class="tinder--card">
+                      <img src="https://static.republika.co.id/uploads/images/inpicture_slide/chris-hemsworth-_181006125016-887.jpg">
+                      <h3>Chris Lupa namanya</h3>
+                      <p>40, Male <br><br> Do you want date with me?</p>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="footer">
+                © 2021 Corona Dating App All Rights Reserved
+            </div>
+    </div>
+    <div class="overlay"></div>
+</body>
+    <!-- tambahan external script -->
+    <script src="https://hammerjs.github.io/dist/hammer.min.js"></script> 
+    <script>
+        // 
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+        // 
+
+    </script>
+</html>
